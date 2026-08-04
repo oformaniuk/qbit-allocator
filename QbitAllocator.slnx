@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/QbitAllocator/QbitAllocator.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/QbitAllocator.Tests/QbitAllocator.Tests.csproj" />
+  </Folder>
+</Solution>

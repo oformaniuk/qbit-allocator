@@ -1,0 +1,70 @@
+name: Bug report
+description: Report reproducible allocator behavior
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include real credentials, cookies, private URLs, private tracker names, or real torrent hashes.
+  - type: input
+    id: version
+    attributes:
+      label: qbit-allocator version
+      description: Version, image tag, or commit SHA.
+    validations:
+      required: true
+  - type: input
+    id: qbit-version
+    attributes:
+      label: qBittorrent version
+    validations:
+      required: false
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Deployment
+      options:
+        - Docker Compose
+        - Docker
+        - Local dotnet run
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Sanitized allocator configuration
+      render: json
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Configure disks...
+        2. Add a legal test download...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs
+      render: text
+    validations:
+      required: false

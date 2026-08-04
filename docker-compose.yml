@@ -1,0 +1,30 @@
+services:
+  qbit-allocator:
+    image: qbit-allocator:local
+    build: .
+    container_name: qbit-allocator
+    restart: unless-stopped
+    ports:
+      - "8088:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+    volumes:
+      - ./examples/appsettings.example.json:/app/appsettings.Production.json:ro
+      - /mnt/disk-a:/data/disk-a
+      - /mnt/disk-b:/data/disk-b
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      WEBUI_PORT: 8080
+    volumes:
+      - qbittorrent-config:/config
+      - /mnt/disk-a:/data/disk-a
+      - /mnt/disk-b:/data/disk-b
+
+volumes:
+  qbittorrent-config:
