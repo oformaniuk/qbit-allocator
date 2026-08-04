@@ -8,6 +8,36 @@ services:
       - "8088:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: Production
+      # ASP.NET Core maps double underscores to nested configuration keys.
+      # These examples override values from appsettings.Production.json.
+      # Allocator__UpstreamUrl: http://qbittorrent:8080
+      # Allocator__Policy: most_free
+      # Allocator__UnknownSizeBytes: 107374182400
+      # Allocator__DefaultCategory: default
+      # Allocator__SavePathTemplate: "{disk}/{category}"
+      # Allocator__AssignmentTag: qbit-assigned
+      # Allocator__DiskTagPrefix: "disk:"
+      # Allocator__RelocateTag: qbit-relocate
+      # Allocator__DiskPinTagPrefix: "root:"
+      # Allocator__TagOnProxyAdd: "true"
+      # Allocator__RemoveStaleDiskTagsOnProxyAdd: "false"
+      # Allocator__OnAllocationFailure: reject
+      # Allocator__ReconcilerEnabled: "true"
+      # Allocator__ReconcileIntervalSeconds: 30
+      # Allocator__StartAfterReconcile: "true"
+      # Allocator__StartAfterRelocate: "false"
+      # Allocator__QbitClientTimeoutSeconds: 30
+      # Allocator__ProxyTimeoutSeconds: 300
+      # Allocator__AutoDetect__Enabled: "true"
+      # Allocator__AutoDetect__RootPaths__0: /data
+      # Allocator__AutoDetect__IncludeRootPathsAsDisks: "false"
+      # Allocator__AutoDetect__MinFreeBytes: 214748364800
+      # Allocator__CategoryPins__datasets-disk-a: disk-a
+      # Allocator__Disks__0__Label: disk-a
+      # Allocator__Disks__0__Path: /data/disk-a
+      # Allocator__Disks__0__SavePathTemplate: "{disk}/downloads/datasets"
+      # Allocator__Disks__0__Enabled: "true"
+      # Allocator__Disks__0__MinFreeBytes: 214748364800
     volumes:
       - ./examples/appsettings.example.json:/app/appsettings.Production.json:ro
       - /mnt/disk-a:/data/disk-a
