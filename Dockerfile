@@ -13,7 +13,7 @@ RUN dotnet publish src/QbitAllocator/QbitAllocator.csproj \
     --no-restore \
     -p:UseAppHost=false
 
-FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:11.0-alpine
 ARG BUILD_DATE
 ARG VCS_REF
 ARG SOURCE_REPOSITORY_URL=""
